@@ -1,6 +1,6 @@
-# MapReduce VS Spark - Secondary Sort Example
+# MapReduce VS Spark - Inverted Index Example
 
-Comparing MapReduce to Spark using Secondary Sort example.
+Comparing MapReduce to Spark using Inverted Index example.
 
 ## Requirements
 - IDE 
@@ -8,21 +8,18 @@ Comparing MapReduce to Spark using Secondary Sort example.
 - JVM 6 or 7
 
 ## General Info
-The repository contains both MapReduce and Spark projects MRSecondarySort and SparkSecondarySort
-* com/stdatalabs/SparkSecondarySort
-     * Driver.scala --   Spark code to perform Secondary Sorting
-* com/stdatalabs/MRSecondarySort
-    * PersonMapper.java -- Reads lastname and firstname and outputs (Person, firstname) as key-value pair
-    * PersonReducer.java -- Reads the list of (Person, firstname) key-value pair and outputs sorted list of (lastname, firstname) in 2 output files
-    * PersonPartitioner.java -- Partitions the Person composite key based on lastname
-    * PersonSortingComparator.java -- Sorts the mapper output based on lastname and then firstname
-    * PersonGroupingComparator.java -- Groups keys with its list of values before sending to reducer
-    * Driver -- Driver program for MapReduce jobs
+The repository contains both MapReduce and Spark projects MRInvertedIndex and SparkInvertedIndex
+* com/stdatalabs/SparkInvertedIndex
+     * Driver.scala --   Spark code to build inverted index
+* com/stdatalabs/MRInvertedIndex
+    * InvertedIndexMapper.java -- Reads files in input directory and outputs (word, filename) as key-value pair
+    * InvertedIndexReducer.java -- Reads the list of (word, firstnames) key-value pair and outputs (word, (filename, count))
+    * InvertedIndexDriver.java -- Driver program for MapReduce jobs
 
 ## Description
-* A comparison between MapReduce and Apache Spark RDD code using Secondary Sort example 
+* A comparison between MapReduce and Apache Spark RDD code using Inverted Index example 
   Discussed in blog -- 
-     [MapReduce VS Spark - Secondary Sort Example](http://stdatalabs.blogspot.in/2017/02/mapreduce-vs-spark-secondary-sort.html)
+     [MapReduce VS Spark - Inverted Index Example](http://stdatalabs.blogspot.in/2017/03/mapreduce-vs-spark-inverted-index.html)
 
 ### More articles on hadoop technology stack at [stdatalabs](http://stdatalabs.blogspot.in)
 
